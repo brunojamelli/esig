@@ -13,11 +13,11 @@ public class TaskService {
 	@Autowired
 	private TaskRepository repo;
 
-	public Task insert(Task obj) {
-		obj.setId(null);
-		obj.setStatus(false);
-		obj = repo.save(obj);
-		return obj;
+	public Task insert(Task task) {
+		task.setId(null);
+		task.setStatus(false);
+		task = repo.save(task);
+		return task;
 	}
 
 	public List<Task> findAll() {
@@ -34,6 +34,7 @@ public class TaskService {
 
 	public void updateStatus(Integer id) {
 		Task obj = repo.findOne(id);
+		// alterando o status da tarefa para o inverso do que ele é
 		obj.setStatus((!obj.getStatus()) ? true : false);
 		repo.save(obj);
 	}

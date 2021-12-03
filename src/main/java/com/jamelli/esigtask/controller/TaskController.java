@@ -4,7 +4,9 @@ import com.jamelli.esigtask.domains.Task;
 import com.jamelli.esigtask.repositories.TaskRepository;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ public class TaskController {
 
 	private Task task = new Task();
 	private List<Task> taskList;
-	private String buttonName;
+	private String buttonName = "Cadastrar";
 
 	public String getButtonName() {
 		return buttonName;
@@ -41,6 +43,7 @@ public class TaskController {
 			task.setStatus(false);
 			repo.save(task);
 			init();
+			addMessage("Tarefa Salva com Sucesso !!", "Data saved");
 			return "/index.xhtml";
 	}
 
@@ -89,6 +92,11 @@ public class TaskController {
 
 	public void clear(){
 		task = new Task();
+	}
+
+	public void addMessage(String summary, String detail) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
 }
