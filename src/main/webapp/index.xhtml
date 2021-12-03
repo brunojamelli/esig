@@ -15,93 +15,92 @@
             <li><a href="/index.xhtml"> Inicio </a></li>
             <li><a href="/list.xhtml">Listar todas tarefas</a></li>
             <li><a href="/register-task.xhtml">Cadastrar tarefa</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Contact</a></li>
         </ul>
+        <p:panel header="Gerenciar Tarefas" style="width:1200px; margin-top: 50px;">
+            <div id="content" style="padding-top:20px;">
+                    <h:form id="form1">
+                        <p:panel style="width:700px;">
+                            <h:panelGrid columns="2" cellpadding="5">
 
-        <div id="content" style="padding-top:20px;">
-                <h:form id="form1">
-                    <p:panel style="width:700px;">
-                        <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputLabel for="title" value="Título/Descrição:"/>
+                                <p:inputText id="title"
+                                             value="#{taskController.task.title}"
+                                />
 
-                            <h:outputLabel for="title" value="Título/Descrição:"/>
-                            <p:inputText id="title"
-                                         value="#{taskController.task.title}"
-                            />
+                                <h:outputLabel for="title" value="Descrição:"/>
+                                <p:inputText id="description"
+                                             value="#{taskController.task.description}"
+                                />
 
-                            <h:outputLabel for="title" value="Descrição:"/>
-                            <p:inputText id="description"
-                                         value="#{taskController.task.description}"
-                            />
+                                <h:outputLabel for="responsible" value="Responsável:"/>
+                                <p:inputText id="responsible"
+                                             value="#{taskController.task.responsible}"
+                                />
 
-                            <h:outputLabel for="responsible" value="Responsável:"/>
-                            <p:inputText id="responsible"
-                                         value="#{taskController.task.responsible}"
-                            />
+                                <h:outputLabel for="status" value="Situação:"/>
+                                <h:selectOneMenu id="status"
+                                                 value="#{taskController.task.status}">
+                                    <f:selectItem itemLabel="Em andamento" itemValue="false" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Concluída" itemValue="true"/>
+                                </h:selectOneMenu>
 
-                            <h:outputLabel for="status" value="Situação:"/>
-                            <h:selectOneMenu id="status"
-                                             value="#{taskController.task.status}">
-                                <f:selectItem itemLabel="Em andamento" itemValue="false" noSelectionOption="true"/>
-                                <f:selectItem itemLabel="Concluída" itemValue="true"/>
-                            </h:selectOneMenu>
-
-                        </h:panelGrid>
-                        <h:commandButton value="Buscar Tarefas" action="#{taskController.findTask}"/>
-                        <h:commandButton value="Buscar Todas" action="#{taskController.findAll}"/>
+                            </h:panelGrid>
+                            <h:commandButton value="Buscar Tarefas" action="#{taskController.findTask}"/>
+                            <h:commandButton value="Buscar Todas" action="#{taskController.findAll}"/>
 
 
-                    </p:panel>
+                        </p:panel>
 
-                </h:form>
-                <h:form id="form">
-                    <p:dataTable value="#{taskController.taskList}" var="obj"
-                                 style="margin-top: 50px; text-align: center;width: 1000px;">
-                        <p:column headerText="Número">
-                            <p:outputLabel value="#{obj.id}" />
-                        </p:column>
-                        <p:column headerText="Título">
-                            <p:outputLabel value="#{obj.title}" />
-                        </p:column>
-                        <p:column headerText="Descrição">
-                            <p:outputLabel value="#{obj.description}" />
-                        </p:column>
-                        <p:column headerText="Responsável">
-                            <p:outputLabel value="#{obj.responsible}" />
-                        </p:column>
-                        <p:column headerText="Ações">
-                            <h:commandLink
-                                    action="#{taskController.edit(obj)}"
-                                    update="form"
-                            >
-                                <img src="resources/images/edit1.png" alt="edit"/>
-                            </h:commandLink>
-                            <a/>
-                            <h:commandLink
-                                    action="#{taskController.deleteById(obj.id)}"
-                                    update="form"
-                            >
-                                <img src="resources/images/trash01.png" alt="trash"/>
-                            </h:commandLink>
-                            <a/>
-                            <h:commandLink scope="row"
-                                           action="#{taskController.updateStatus(obj)}" update="form">
-                                <h:panelGroup rendered="#{obj.status eq false}">
-                                    <img src="resources/images/open1.png"
-                                         onmouseover="src='resources/images/check1.png'"
-                                         onmouseout="src='resources/images/open1.png'"
-                                         alt=""
-                                    />
-                                </h:panelGroup>
-                                <h:panelGroup rendered="#{obj.status eq true}">
-                                    <img src="resources/images/check1.png" alt="check"/>
-                                </h:panelGroup>
-                            </h:commandLink>
-                        </p:column>
-                    </p:dataTable>
+                    </h:form>
+                    <h:form id="form">
+                        <p:dataTable value="#{taskController.taskList}" var="obj"
+                                     style="margin-top: 50px; text-align: center;width: 1000px;">
+                            <p:column headerText="Número">
+                                <p:outputLabel value="#{obj.id}" />
+                            </p:column>
+                            <p:column headerText="Título">
+                                <p:outputLabel value="#{obj.title}" />
+                            </p:column>
+                            <p:column headerText="Descrição">
+                                <p:outputLabel value="#{obj.description}" />
+                            </p:column>
+                            <p:column headerText="Responsável">
+                                <p:outputLabel value="#{obj.responsible}" />
+                            </p:column>
+                            <p:column headerText="Ações">
+                                <h:commandLink
+                                        action="#{taskController.edit(obj)}"
+                                        update="form"
+                                >
+                                    <img src="resources/images/edit1.png" alt="edit"/>
+                                </h:commandLink>
+                                <a/>
+                                <h:commandLink
+                                        action="#{taskController.deleteById(obj.id)}"
+                                        update="form"
+                                >
+                                    <img src="resources/images/trash01.png" alt="trash"/>
+                                </h:commandLink>
+                                <a/>
+                                <h:commandLink scope="row"
+                                               action="#{taskController.updateStatus(obj)}" update="form">
+                                    <h:panelGroup rendered="#{obj.status eq false}">
+                                        <img src="resources/images/open1.png"
+                                             onmouseover="src='resources/images/check1.png'"
+                                             onmouseout="src='resources/images/open1.png'"
+                                             alt=""
+                                        />
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="#{obj.status eq true}">
+                                        <img src="resources/images/check1.png" alt="check"/>
+                                    </h:panelGroup>
+                                </h:commandLink>
+                            </p:column>
+                        </p:dataTable>
 
-                    <p:growl id="messages"/>
-                </h:form>
-        </div>
+                        <p:growl id="messages"/>
+                    </h:form>
+            </div>
+        </p:panel>
     </h:body>
 </html>
