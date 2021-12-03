@@ -33,10 +33,10 @@ public class TaskService {
 	}
 
 	public void updateStatus(Integer id) {
-		Task obj = repo.findOne(id);
+		Task task = repo.findOne(id);
 		// alterando o status da tarefa para o inverso do que ele é
-		obj.setStatus((!obj.getStatus()) ? true : false);
-		repo.save(obj);
+		task.setStatus((!task.getStatus()) ? true : false);
+		repo.save(task);
 	}
 
 }

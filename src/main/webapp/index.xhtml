@@ -12,8 +12,8 @@
     </h:head>
     <h:body>
         <ul class="nav">
-            <li><a href="/index.xhtml">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="/index.xhtml"> Inicio </a></li>
+            <li><a href="/list.xhtml">Listar todas tarefas</a></li>
             <li><a href="/register-task.xhtml">Cadastrar tarefa</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Contact</a></li>
@@ -29,6 +29,11 @@
                                          value="#{taskController.task.title}"
                             />
 
+                            <h:outputLabel for="title" value="Descrição:"/>
+                            <p:inputText id="description"
+                                         value="#{taskController.task.description}"
+                            />
+
                             <h:outputLabel for="responsible" value="Responsável:"/>
                             <p:inputText id="responsible"
                                          value="#{taskController.task.responsible}"
@@ -42,7 +47,7 @@
                             </h:selectOneMenu>
 
                         </h:panelGrid>
-                        <h:commandButton value="Buscar" action="#{taskController.search}"/>
+                        <h:commandButton value="Buscar" action="#{taskController.findTask}"/>
 
 
                     </p:panel>
