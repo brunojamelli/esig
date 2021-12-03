@@ -11,7 +11,14 @@
         <link href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" rel="stylesheet" type="text/css" />
     </h:head>
     <h:body>
-
+        <ul class="nav">
+            <li><a href="/index.xhtml">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="/register-task.xhtml">Cadastrar tarefa</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    <div id="content">
 
                 <h:form id="form">
                     <p:panel header="#{taskController.buttonName} Tarefa" style="width:900px;">
@@ -72,6 +79,6 @@
                         <p:growl id="messages"/>
                     </p:panel>
                 </h:form>
-
+    </div>
     </h:body>
 </html>

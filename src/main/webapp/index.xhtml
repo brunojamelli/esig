@@ -11,9 +11,15 @@
         <link href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" rel="stylesheet" type="text/css" />
     </h:head>
     <h:body>
-        <a href="/register-task.xhtml">Cadastrar tarefa</a>
+        <ul class="nav">
+            <li><a href="/index.xhtml">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="/register-task.xhtml">Cadastrar tarefa</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
 
-        <div id="content">
+        <div id="content" style="padding-left:26px; padding-top:20px;">
                 <h:form id="form1">
                     <p:panel style="width:900px;">
                         <h:panelGrid columns="2" cellpadding="5">
