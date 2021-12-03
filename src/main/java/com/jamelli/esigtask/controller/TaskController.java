@@ -36,10 +36,7 @@ public class TaskController {
 		task = new Task();
 		setButtonName("Cadastrar");
 	}
-//	public String initRegister(){
-//		setButtonName("Cadastrar");
-//		return "/register-task.xhtml";
-//	}
+
 	public String insert() {
 			task.setStatus(false);
 			repo.save(task);
@@ -49,7 +46,6 @@ public class TaskController {
 	}
 
 	public void findTask(){
-//		String desc = task.getTitle();
 		taskList = repo.find(task.getTitle(), task.getDescription(), task.getResponsible(), task.getStatus());
 		task = new Task();
 	}
