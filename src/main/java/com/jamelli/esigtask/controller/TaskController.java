@@ -36,15 +36,15 @@ public class TaskController {
 		task = new Task();
 		setButtonName("Cadastrar");
 	}
-	public String initRegister(){
-		setButtonName("Cadastrar");
-		return "/register-task.xhtml";
-	}
+//	public String initRegister(){
+//		setButtonName("Cadastrar");
+//		return "/register-task.xhtml";
+//	}
 	public String insert() {
 			task.setStatus(false);
 			repo.save(task);
 			init();
-			addMessage("Tarefa Salva com Sucesso !!", "Data saved");
+			saveMessage("Tarefa Salva com Sucesso !!", "Data saved");
 			return "/index.xhtml";
 	}
 
@@ -59,6 +59,7 @@ public class TaskController {
 	}
 
 	public void updateStatus(Task obj) {
+		saveMessage((!obj.getStatus()) ? "Concluida" : "Em andamento" ,"");
 		obj.setStatus(!obj.getStatus());
 		repo.save(obj);
 	}
@@ -76,7 +77,9 @@ public class TaskController {
 	}
 
 	public void deleteById(Integer id) {
+		deleteMessage("Tarefa Excluida","");
 		repo.delete(id);
+		findAll();
 	}
 
 	public Task getTask() {
@@ -99,8 +102,13 @@ public class TaskController {
 		task = new Task();
 	}
 
-	public void addMessage(String summary, String detail) {
+	public void saveMessage(String summary, String detail) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
+	public void deleteMessage(String summary, String detail) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
