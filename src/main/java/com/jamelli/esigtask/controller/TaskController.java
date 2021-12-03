@@ -54,6 +54,10 @@ public class TaskController {
 		task = new Task();
 	}
 
+	public void findAll(){
+		taskList = repo.findAll();
+	}
+
 	public void updateStatus(Task obj) {
 		obj.setStatus(!obj.getStatus());
 		repo.save(obj);

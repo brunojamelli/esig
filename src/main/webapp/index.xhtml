@@ -47,7 +47,8 @@
                             </h:selectOneMenu>
 
                         </h:panelGrid>
-                        <h:commandButton value="Buscar" action="#{taskController.findTask}"/>
+                        <h:commandButton value="Buscar Tarefas" action="#{taskController.findTask}"/>
+                        <h:commandButton value="Buscar Todas" action="#{taskController.findAll}"/>
 
 
                     </p:panel>
@@ -55,7 +56,7 @@
                 </h:form>
                 <h:form id="form">
                     <p:dataTable value="#{taskController.taskList}" var="obj"
-                                 style="margin-top: 50px; text-align: center">
+                                 style="margin-top: 50px; text-align: center;width: 1000px;">
                         <p:column headerText="Número">
                             <p:outputLabel value="#{obj.id}" />
                         </p:column>
@@ -73,27 +74,27 @@
                                     action="#{taskController.edit(obj)}"
                                     update="form"
                             >
-                                <img src="resources/images/edit.png" alt="edit"/>
+                                <img src="resources/images/edit1.png" alt="edit"/>
                             </h:commandLink>
                             <a/>
                             <h:commandLink
                                     action="#{taskController.deleteById(obj.id)}"
                                     update="form"
                             >
-                                <img src="resources/images/trash.png" alt="trash"/>
+                                <img src="resources/images/trash01.png" alt="trash"/>
                             </h:commandLink>
                             <a/>
                             <h:commandLink scope="row"
                                            action="#{taskController.updateStatus(obj)}" update="form">
                                 <h:panelGroup rendered="#{obj.status eq false}">
-                                    <img src="resources/images/open.png"
-                                         onmouseover="src='resources/images/check.png'"
-                                         onmouseout="src='resources/images/open.png'"
+                                    <img src="resources/images/open1.png"
+                                         onmouseover="src='resources/images/check1.png'"
+                                         onmouseout="src='resources/images/open1.png'"
                                          alt=""
                                     />
                                 </h:panelGroup>
                                 <h:panelGroup rendered="#{obj.status eq true}">
-                                    <img src="resources/images/check.png" alt="check"/>
+                                    <img src="resources/images/check1.png" alt="check"/>
                                 </h:panelGroup>
                             </h:commandLink>
                         </p:column>
