@@ -25,13 +25,13 @@ E como itens opcionais:
 - Listar Tarefas
 - Buscar Tarefas
 ## Demonstração no Heroku
-A aplicação esta disponivel no heroku no seguinte link:
+A aplicação está disponível no heroku no seguinte link:
 
 [https://esigproject.herokuapp.com/index.xhtml](https://esigproject.herokuapp.com/index.xhtml)
 
 ## 🚀 Como executar a aplicação localmente
 ### Pré-requisitos
-Antes de começar, você vai precisar verificar se tem instalado em sua máquina as seguintes ferramentas: **[git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**, **[openjdk](https://openjdk.java.net/)** ou o jdk da oracle, **Docker** ou **[postgres nativo](https://www.postgresql.org/)**, Além disto é necessário ter uma IDE para desenvolvimento de aplicações java EE, recomendo o intellij para esse projeto em especifico, uma vez que ele foi desenvolvido utilizando o intellij. Caso queira executar o postgres + pgadmin via docker para o seu ambiente de desenvolvimento, 
+Antes de começar, você vai precisar verificar se tem instalado em sua máquina as seguintes ferramentas: **[git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**, **[openjdk](https://openjdk.java.net/)** ou o jdk da oracle, **Docker** ou **[postgres nativo](https://www.postgresql.org/)**, Além disto é necessário ter uma IDE para desenvolvimento de aplicações java EE, recomendo o intellij para esse projeto em específico, uma vez que ele foi desenvolvido utilizando o intellij. Caso queira executar o postgres + pgadmin via docker para o seu ambiente de desenvolvimento, 
 indico esse [tutorial](https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89) do Renato Groffe.
 
 #### 🏁 Começar
@@ -42,7 +42,7 @@ git clone https://github.com/brunojamelli/esig.git
 
 ```
 
-Acesse a pasta do projeto no com a IDE de sua preferencia, recomendo utilizar o [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/#section=linux) 
+Acesse a pasta do projeto no com a IDE de sua preferência, recomendo utilizar o [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/#section=linux) 
 #### 🐳 Se você não tem o docker
 ```bash
 
@@ -56,12 +56,12 @@ sh get-docker.sh
 ### Configurações/Dicas Basicas do Projeto
 - Abrir arquivo application.properties, que se encontra dentro da pasta resources;
 - Criar no postgres via CLI ou pgadmin um banco de dados chamado **"gerenciadortarefas"**, ou se preferir, altere o nome do banco de dados no application.properties, bastando manter o novo nome do banco de dados criado igual ao que estiver configurado no properties;
-- Descomentar todas as linhas abaixo do comentario **"POSTGRESQL LOCAL"**;
+- Descomentar todas as linhas abaixo do comentário **"POSTGRESQL LOCAL"**;
 - Comentar as linhas iniciais, que são referentes a execução do projeto no ambiente cloud do Heroku;
-- Agora basta clicar em executar, que a sua aplicação estara funcionando perfeitamente e com um banco de dados novo e limpo;
+- Agora basta clicar em executar, que a sua aplicação estará funcionando perfeitamente e com um banco de dados novo e limpo;
 - A aplicação JSF ira executar em **http://localhost:8081/index.xhtml**;
-- A API REST ira executar em **http://localhost:8081/api/task**;
-- Vale salientar que a primeira execução ira demorar, pois o projeto ira utilizar o maven para baixar todas as dependencias necessarias.
+- A API REST irá executar em **http://localhost:8081/api/task**;
+- Vale salientar que a primeira execução irá demorar, pois o projeto irá utilizar o maven para baixar todas as dependências necessárias.
 
 ## 🛠 Tecnologias
 
