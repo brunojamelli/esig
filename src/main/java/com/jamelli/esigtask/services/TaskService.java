@@ -26,12 +26,15 @@ public class TaskService {
 		return repo.findOne(id);
 	}
 
+	public List<Task> findTaskByFields(Task task){
+		return repo.find(task.getTitle(), task.getDescription(), task.getResponsible(), task.getStatus());
+	}
+
 	public void deleteById(Integer id) {
 		repo.delete(id);
 	}
 
-	public void updateStatus(Integer id) {
-		Task task = repo.findOne(id);
+	public void updateStatus(Task task) {
 		// alterando o status da tarefa para o inverso do que ele é
 		task.setStatus(!task.getStatus());
 		repo.save(task);

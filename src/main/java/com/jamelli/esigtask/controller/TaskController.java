@@ -52,7 +52,8 @@ public class TaskController {
 	}
 
 	public void findTask(){
-		taskList = repo.find(task.getTitle(), task.getDescription(), task.getResponsible(), task.getStatus());
+//		taskList = repo.find(task.getTitle(), task.getDescription(), task.getResponsible(), task.getStatus());
+		taskList = taskService.findTaskByFields(task);
 		task = new Task();
 	}
 
@@ -65,7 +66,7 @@ public class TaskController {
 		saveMessage((!task.getStatus()) ? "Concluida" : "Em andamento" ,"");
 //		obj.setStatus(!obj.getStatus());
 //		repo.save(obj);
-		taskService.updateStatus(task.getId());
+		taskService.updateStatus(task);
 	}
 
 	public String edit(Task obj) {
