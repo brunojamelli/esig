@@ -58,7 +58,10 @@ public class TaskController {
 	}
 
 	public void findAll(){
+
 		taskList = taskService.findAll();
+//		task = new Task();
+
 	}
 
 	public void updateStatus(Task task) {
