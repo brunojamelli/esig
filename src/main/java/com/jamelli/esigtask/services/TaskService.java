@@ -13,11 +13,9 @@ public class TaskService {
 	@Autowired
 	private TaskRepository repo;
 
-	public Task insert(Task task) {
-		task.setId(null);
+	public Task save(Task task) {
 		task.setStatus(false);
-		task = repo.save(task);
-		return task;
+		return repo.save(task);
 	}
 
 	public List<Task> findAll() {

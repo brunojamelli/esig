@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
+import com.jamelli.esigtask.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Named
@@ -17,6 +18,9 @@ public class TaskController {
 
 	@Autowired
 	private TaskRepository repo;
+
+	@Autowired
+	private TaskService taskService;
 
 	private Task task = new Task();
 	private List<Task> taskList;
@@ -32,16 +36,18 @@ public class TaskController {
 
 	@PostConstruct
 	public void init() {
-		taskList = repo.findAll();
+		taskList = taskService.findAll();
 		task = new Task();
 		setButtonName("Cadastrar");
 	}
 
 	public String insert() {
-			task.setStatus(false);
-			repo.save(task);
+//			task.setStatus(false);
+//			repo.save(task);
+			Task newtask = taskService.save(task);
 			init();
-			saveMessage("Tarefa Salva com Sucesso !!", "Data saved");
+			String message = "Tarefa "+ newtask.getTitle() +"\nSalva com Sucesso !!";
+			saveMessage( message, "Data saved");
 			return "/index.xhtml";
 	}
 
@@ -51,10 +57,11 @@ public class TaskController {
 	}
 
 	public void findAll(){
-		taskList = repo.findAll();
+		taskList = taskService.findAll();
 	}
 
 	public void updateStatus(Task obj) {
+		// envia a mensagem de acordo com o resultado do operador ternario
 		saveMessage((!obj.getStatus()) ? "Concluida" : "Em andamento" ,"");
 		obj.setStatus(!obj.getStatus());
 		repo.save(obj);
@@ -74,8 +81,19 @@ public class TaskController {
 
 	public void deleteById(Integer id) {
 		deleteMessage("Tarefa Excluida","");
-		repo.delete(id);
+//		repo.delete(id);
+		taskService.deleteById(id);
 		findAll();
+	}
+
+	public void saveMessage(String summary, String detail) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
+	public void deleteMessage(String summary, String detail) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
 	public Task getTask() {
@@ -97,15 +115,4 @@ public class TaskController {
 	public void clear(){
 		task = new Task();
 	}
-
-	public void saveMessage(String summary, String detail) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
-
-	public void deleteMessage(String summary, String detail) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail);
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
-
 }
