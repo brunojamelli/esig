@@ -31,8 +31,8 @@ A aplicação esta disponivel no heroku no seguinte link:
 
 ## 🚀 Como executar a aplicação localmente
 ### Pré-requisitos
-Antes de começar, você vai precisar verificar se tem instalado em sua máquina as seguintes ferramentas: **[git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**, **[openjdk](https://openjdk.java.net/)** ou o jdk da oracle, **Docker** ou **postgres nativo**, Além disto é necessário ter uma IDE para desenvolvimento de aplicações java EE, recomendo o intellij para esse projeto em especifico, uma vez que ele foi desenvolvido utilizando o intellij. Caso queira executar o postgres + pgadmin via docker, 
-indico esse tutorial do Renato Groffe [link](https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89).
+Antes de começar, você vai precisar verificar se tem instalado em sua máquina as seguintes ferramentas: **[git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**, **[openjdk](https://openjdk.java.net/)** ou o jdk da oracle, **Docker** ou **[postgres nativo](https://www.postgresql.org/)**, Além disto é necessário ter uma IDE para desenvolvimento de aplicações java EE, recomendo o intellij para esse projeto em especifico, uma vez que ele foi desenvolvido utilizando o intellij. Caso queira executar o postgres + pgadmin via docker para o seu ambiente de desenvolvimento, 
+indico esse [tutorial](https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89) do Renato Groffe.
 
 #### 🏁 Começar
 ```bash
@@ -53,13 +53,14 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
 ```
-### Configurações basicas do Projeto
+### Configurações/Dicas Basicas do Projeto
 - Abrir arquivo application.properties, que se encontra dentro da pasta resources;
 - Criar no postgres via CLI ou pgadmin um banco de dados chamado **"gerenciadortarefas"**, ou se preferir, altere o nome do banco de dados no application.properties, bastando manter o novo nome do banco de dados criado igual ao que estiver configurado no properties;
-- Descomentar todas as linhas abaixo do comentario **"BANCO LOCAL"**;
+- Descomentar todas as linhas abaixo do comentario **"POSTGRESQL LOCAL"**;
 - Comentar as linhas iniciais, que são referentes a execução do projeto no ambiente cloud do Heroku;
 - Agora basta clicar em executar, que a sua aplicação estara funcionando perfeitamente e com um banco de dados novo e limpo;
-- A aplicação ira executar em **http://localhost:8081/index.xhtml**;
+- A aplicação JSF ira executar em **http://localhost:8081/index.xhtml**;
+- A API REST ira executar em **http://localhost:8081/api/task**;
 - Vale salientar que a primeira execução ira demorar, pois o projeto ira utilizar o maven para baixar todas as dependencias necessarias.
 
 ## 🛠 Tecnologias
@@ -67,13 +68,12 @@ sh get-docker.sh
 As seguintes ferramentas foram usadas na construção do projeto:
 
 ### 🌐 **Banco de dados** 
-- **[Postgres](https://expressjs.com/)**
+- **[SGBD Postgres](https://expressjs.com/)**
 - **[PGadmin 4](https://github.com/arb/celebrate)**
 
 ### 🌐 **Ecosistema SPRING e JAVA**
 - **Openjdk-8**
 - **primefaces**
-- **Hibernate**
 - **jsf-spring-boot-starter**
 - **spring-boot-starter-data-jpa**
 - **spring-boot-starter-tomcat**
