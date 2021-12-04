@@ -22,8 +22,8 @@ public class TaskService {
 		return repo.findAll();
 	}
 
-	public List<Task> findAllByStatus(Boolean b) {
-		return repo.findByStatus(b);
+	public Task findTask(Integer id){
+		return repo.findOne(id);
 	}
 
 	public void deleteById(Integer id) {
@@ -33,7 +33,7 @@ public class TaskService {
 	public void updateStatus(Integer id) {
 		Task task = repo.findOne(id);
 		// alterando o status da tarefa para o inverso do que ele é
-		task.setStatus((!task.getStatus()) ? true : false);
+		task.setStatus(!task.getStatus());
 		repo.save(task);
 	}
 

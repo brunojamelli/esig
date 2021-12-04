@@ -60,15 +60,17 @@ public class TaskController {
 		taskList = taskService.findAll();
 	}
 
-	public void updateStatus(Task obj) {
+	public void updateStatus(Task task) {
 		// envia a mensagem de acordo com o resultado do operador ternario
-		saveMessage((!obj.getStatus()) ? "Concluida" : "Em andamento" ,"");
-		obj.setStatus(!obj.getStatus());
-		repo.save(obj);
+		saveMessage((!task.getStatus()) ? "Concluida" : "Em andamento" ,"");
+//		obj.setStatus(!obj.getStatus());
+//		repo.save(obj);
+		taskService.updateStatus(task.getId());
 	}
 
 	public String edit(Task obj) {
-		task = repo.findOne(obj.getId());
+//		task = repo.findOne(obj.getId());
+		task = taskService.findTask(obj.getId());
 		setButtonName("Alterar");
 		return "/register-task.xhtml";
 	}
