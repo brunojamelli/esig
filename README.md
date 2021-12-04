@@ -73,9 +73,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **Openjdk-8**
 - **jsf-spring-boot-starter**
 - **spring-boot-starter-data-jpa**
-- **spring-boot-starter-web**
 - **spring-boot-starter-tomcat**
-- **spring-boot-starter-test**
 - **primefaces**
 
 ### 🌐 **Ferramentas de Suporte**
