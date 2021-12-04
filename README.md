@@ -13,7 +13,8 @@ Foram implementados os itens obrigatórios:
 
 E como itens opcionais:
 
-- Publicação projeto no heroku ou outro ambiente cloud.
+- Publicação projeto no heroku ou outro ambiente cloud;
+- Criação API REST.
 
 <p>A aplicação desenvolvida se trata de um gerenciador de tarefas, onde o usuário pode:</p>
 
@@ -30,7 +31,7 @@ A aplicação esta disponivel no heroku no seguinte link:
 
 ## 🚀 Como executar a aplicação localmente
 ### Pré-requisitos
-Antes de começar, você vai precisar verificar se tem instalado em sua máquina as seguintes ferramentas: git, openjdk, Docker ou postgres nativo, Além disto é necessário ter uma IDE para desenvolvimento de aplicações java EE, recomendo o intellij para esse projeto em especifico, uma vez que ele foi desenvolvido utilizando o intellij. Caso queira executar o postgres + pgadmin via docker, 
+Antes de começar, você vai precisar verificar se tem instalado em sua máquina as seguintes ferramentas: **[git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**, **[openjdk](https://openjdk.java.net/)** ou o jdk da oracle, **Docker** ou **postgres nativo**, Além disto é necessário ter uma IDE para desenvolvimento de aplicações java EE, recomendo o intellij para esse projeto em especifico, uma vez que ele foi desenvolvido utilizando o intellij. Caso queira executar o postgres + pgadmin via docker, 
 indico esse tutorial do Renato Groffe [link](https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89).
 
 #### 🏁 Começar
@@ -71,14 +72,16 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### 🌐 **Ecosistema SPRING e JAVA**
 - **Openjdk-8**
+- **primefaces**
+- **Hibernate**
 - **jsf-spring-boot-starter**
 - **spring-boot-starter-data-jpa**
 - **spring-boot-starter-tomcat**
-- **primefaces**
 
 ### 🌐 **Ferramentas de Suporte**
 - [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/#section=linux) 
 - [Maven](https://maven.apache.org/)
+- [VScode](https://code.visualstudio.com/)
 
 > Veja o arquivo [pom.xml](https://github.com/brunojamelli/esig/blob/master/pom.xml)
 
