@@ -55,6 +55,14 @@
                     <h:form id="form">
                         <p:dataTable value="#{taskController.taskList}" var="obj"
                                      style="margin-top: 50px; text-align: center;width: 1000px;">
+                            <f:facet name="header">
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    Lista de Tarefas
+                                </div>
+                                <h:commandButton value="Concluidas"/>
+                                <h:commandButton value="Em Andamento"/>
+                            </f:facet>
+
                             <p:column headerText="Número">
                                 <p:outputLabel value="#{obj.id}" />
                             </p:column>
