@@ -13,9 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface TaskRepository extends JpaRepository<Task, Integer> {
 
     @Query(value = "SELECT * FROM TASK WHERE TITLE = ?1 AND DESCRIPTION = ?2 AND RESPONSIBLE = ?3 AND STATUS = ?4", nativeQuery = true)
-    List<Task> find(String title, String description, String responsible, Boolean status);
+    List<Task> findByFields(String title, String description, String responsible, Boolean status);
 
     @Query(value = "SELECT * FROM TASK WHERE STATUS = ?1", nativeQuery = true)
-    List<Task> findByStatus(Boolean b);
+    List<Task> findByStatus(Boolean status);
 
 }

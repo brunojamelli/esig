@@ -27,7 +27,11 @@ public class TaskService {
 	}
 
 	public List<Task> findTaskByFields(Task task){
-		return repo.find(task.getTitle(), task.getDescription(), task.getResponsible(), task.getStatus());
+		return repo.findByFields(task.getTitle(), task.getDescription(), task.getResponsible(), task.getStatus());
+	}
+
+	public List<Task> findByStatus(boolean status){
+		return repo.findByStatus(status);
 	}
 
 	public void deleteById(Integer id) {
